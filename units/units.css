@@ -1,0 +1,51 @@
+p {
+  font-size: 16px;
+}
+
+/* % 사용 시 가로의 경우 브라우저 가로가 기준이 될 수 있다. */
+/* 하지만 높이의 경우 스크롤이 무한으로 늘어날 수 있기 때문에 상대 기준을 설정하지 못해 무시된다. */
+/* .a {
+  _width: 80%;
+  _height: 100%;
+  background: green;
+}
+
+.b {
+  width: 200px;
+  height: 200px;
+  background: red;
+}
+
+body {
+  height: 100vh;
+  background: lightcyan;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} */
+
+div {
+  width: 100%;
+  height: 100vh;
+}
+
+.a {
+  background: yellowgreen;
+  font-size: 25px;
+}
+
+.a > h2 {
+  font-size: 30px;
+}
+
+.a > h3 {
+  font-size: 1.5rem;
+}
+
+.b {
+  background: lightcyan;
+}
+
+.c {
+  background: lightskyblue;
+}

@@ -1,0 +1,49 @@
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+
+:root {
+  /* 속성 이름은 만들어준다. */
+  --main-align-center: center;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: var(--main-align-center);
+  justify-content: var(--main-align-center);
+}
+
+.container {
+  width: 80%;
+  border: 1px solid;
+  display: flex;
+  padding: 20px;
+  flex-wrap: wrap;
+  border: 1px solid;
+}
+
+.item {
+  width: 33.33%;
+  height: 200px;
+  padding: 10px;
+}
+
+.item > div {
+  width: 100%;
+  height: 100%;
+  _border: 1px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Noto Sans', sans-serif;
+  font-weight: 800;
+  font-size: 40px;
+
+  text-shadow: 2px 3px 10px #ddd; /* x-shadow, y-shadow, blur, color */
+  box-shadow: 0 0 5px #ddd;
+}

@@ -1,0 +1,133 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 1. margin : 요소와 요소 사이의 간격 */
+
+.margin {
+  width: 100%;
+  height: 100px;
+  background: yellow;
+  margin: 10px;
+}
+/* ▲ 값이 하나일 경우 상하좌우 동일 적용*/
+
+.margin {
+  margin: 20px 30px;
+}
+/* ▲ 두개의 수치일 경우 첫번재는 위아래, 두번째는 좌우 */
+
+.margin {
+  margin: 20px 30px 40px;
+}
+/* ▲ 세개의 수치일 경우 첫번재는 위, 두번째는 좌우 세번째는 아래 */
+
+.margin {
+  margin: 20px 30px 40px 50px;
+}
+/* ▲ 네개의 수치일 경우 위에서부터 시계방향 */
+/* 가장 밑에 적용한 마진이 최종적으로 적용된다 */
+
+/* 2. padding : 컨텐츠와 경계선 사이의 간격 */
+/* - 축약형 표현은 마진과 동일 */
+/* box-sizing : 디폴트는 content-box이며 이 경우에 패딩의 크기가 외부로 커진다 반면 border-box는 패딩 크기가 내부로 들어가서 전체 크기에 영향을 주지 않는다 */
+.padding {
+  width: 500px;
+  height: 200px;
+  background: lightcyan;
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+/* 3. border : 패딩과 마진 사이의 선 - 박스의 경계선 */
+/* - border-width : top, right, bottom, left */
+/* - border-style : top, right, bottom, left */
+/* - border-color : top, right, bottom, left : 생략이 가능(검정색) */
+/* - border width style color : 순서는 상관없으나 style 디폴트값이 없기 때문에 누락하면 안 된다 */
+.border {
+  width: 300px;
+  height: 200px;
+  border-width: 2px; /* 선 두께 */
+  border-style: solid; /*선 종류 */
+  border-top-color: red; /*선 색*/
+  border-right-color: green;
+  border-left-color: yellow;
+  border-bottom-color: blue;
+}
+
+p {
+  border-style: solid;
+  border-top-color: red;
+  border-right-color: #fff;
+  border-left-color: #fff;
+  border-bottom-color: #fff;
+
+  border-width: 30px;
+  width: 0;
+}
+
+/* 4. border-radius : 둥근 모서리 */
+/* 원을 만들 때는 값을 50% 또는 100%로 적용한다 */
+.radius {
+  width: 200px;
+  height: 200px;
+  background: lavender;
+  border: 5px solid lime;
+  /* border-top-left-radius: 20px;
+  border-bottom-right-radius: 20px; */
+  border-radius: 10px 20px;
+  border-radius: 10px 20px; /* 왼쪽위, 오른쪽 아래 */
+  border-radius: 10px 20px 30px; /* 왼쪽위, 오른쪽위, 오른쪽아래 */
+  border-radius: 10px 20px 30px 40px; /* 왼쪽위부터 시계방향 */
+}
+
+/* 5. background : 박스의 배경을 지정하며, 색 또는 이미지를 사용할 수 있다 */
+/* - background-color : 색상만 지정, 이미지를 못 넣게 된다 */
+/* - background-image : 이미지 경로 지정 */
+/* - background-repeat : 이미지 사용 시 반복 여부 지정 디폴트 값으로 들어가 있어서 불필요하다면 no-repeat값 적용*/
+/* - background-position : 이미지 사용 시 사진 위치 지정 */
+/* - background-size : 사진과 박스의 비율이 다를 경우 사진을 어떻게 채울지 지정 */
+/* └ contain: 박스 사이즈에 맞게(이미지 기준, 여백이 생길 수 있음) , cover : 박스를 꽉 채우기(공간 기준, 넘치는 이미지 잘릴 수 있음) */
+.bg {
+  width: 500px;
+  _height: 300px;
+  _background-color: aliceblue;
+  border: 1px solid;
+  _background-image: url(bg.jpg);
+  _background-repeat: no-repeat;
+  _background-position: center top; /* 가로, 세로 */
+  _background-size: cover;
+  background: url(bg.jpg) no-repeat center top / cover;
+  padding: 100px 0;
+}
+
+/* - img 태그의 이미지는 사이즈를 지정해주지 않으면 부모의 값을 넘어갈 수 있다. 하지만 background-image는 영역을 넘치는 부분이 가려진다 */
+/* - 태그 이미지는 자식 요소의 높이를 자동으로 지정하지만, background-image는 자식 요소가 아니기 때문에 높이를 잡지 않는다. */
+
+/* .bg > img {
+  width: 100%;
+  display: block;
+} */
+
+/* 6. gradient : 그라데이션 */
+
+.gradient {
+  width: 500px;
+  height: 300px;
+  border: 1px solid;
+  /* colorzilla gradient 검색 */
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#ffb7b8+10,7db9e8+100&1+0,0.8+100 */
+
+  /* background: linear-gradient(
+    to right,
+    #ffb7b8 0%,
+    #7db9e8 100%
+  ); */
+  background: radial-gradient(
+    ellipse at center,
+    rgba(255, 183, 184, 1) 0%,
+    rgba(255, 183, 184, 0.98) 10%,
+    rgba(125, 185, 232, 0.8) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}

@@ -1,0 +1,53 @@
+/*
+- transition(전환)은 한 요소에 적용된 스타일의 속성값을 다른 속성값으로 변하게 하는 것을 말한다.
+- transition의 적용은 전환 대상 요소에 지정한다.
+
+1. transition-property : 전환 대상을 지정한다. 일반적으로 all로 모두 지정한다.
+전환 대상 속성 참조 : https://www.w3schools.com/cssref/css_animatable.asp
+2. transition-duration: 전환이 진행되는 시간을 지정한다.
+3. transition-delay: 전환이 진행되기 전 지정 시간을 대기시킨다. 보통 잘 사용되지는 않는다.
+4. transition-timing-function: 전환이 진행되는 속도를 지정한다. 특히 cubic-bezier는 속도를 지정할 수 있다.
+
+#div1 {transition-timing-function: linear;} : 같은 속도
+#div2 {transition-timing-function: ease;} : 빠른 속도 -> 느린 속도
+#div3 {transition-timing-function: ease-in;} : 느린 속도 -> 빠른 속도
+#div4 {transition-timing-function: ease-out;} : 느린 속도 -> 조금 빠른 속도 -> 빠른 속도
+#div5 {transition-timing-function: ease-in-out;} : 조금 빠른 -> 느린 -> 조금 빠른 -> 빠른 속도
+전화 대상 속성 : https://www.w3schools.com/cssref/css_animatable.php
+*/
+
+div {
+  width: 100px;
+  height: 100px;
+  background: red;
+  _transition-property: width; /* default: all - 일반적으로 all을 사용 */
+  _transition-duration: 2s; /* ms: 밀리초 단위, s: 초단위 */
+  _transition-delay: 0.5s;
+  margin-top: 20px;
+
+  transition: 0.5s; /* transition-property 생략 가능 : all이 디폴트, transition-timing-function 생략 가능 : ease가 디폴트 */
+  /* cubic-bezier는 웹상의 generator를 사용하면 편하다 */
+}
+
+#div1 {
+  transition-timing-function: linear;
+}
+#div2 {
+  transition-timing-function: ease;
+}
+#div3 {
+  transition-timing-function: ease-in;
+}
+#div4 {
+  transition-timing-function: ease-out;
+}
+#div5 {
+  transition-timing-function: ease-in-out;
+}
+#div6 {
+  transition-timing-function: cubic-bezier(0.09, 1.24, 0.97, 0.09);
+}
+
+div:hover {
+  width: 400px;
+}

@@ -1,0 +1,59 @@
+/* display : flex */
+/* - 플렉스 박스는 요소의 레이아웃을 설계할 수 있는 스타일 속성
+- 켄테이너와 아이템의 관계로 레이아웃을 만든다. 이때 컨텐이너에 지정된 속성이 아이템의 레이아웃을 변경한다 */
+
+/* 1. flex : 아이템 요소가 가로로 배치되며 디폴트 가로길이는 무시된다 */
+/* - 플랙스박스의 아이템들은 가로크기와 상관 없이 가로로 나열된다. */
+/* - 최초 디폴트 가로가 주축이 되고, 세로가 교차축이 된다. */
+/* - 주축 정렬은 justify-content, 교차축 정렬은 align-items */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 80%;
+  _height: 600px;
+  border: 1px solid;
+  display: flex;
+  padding: 20px;
+  flex-wrap: wrap; /* container 크기에 맞춰서 개행 - default: nowrap */
+  _flex-wrap: wrap-reverse;
+  /* 주축 정렬: justify-content - start(default), center, right, space-around, space-evenly, space-between */
+  _justify-content: space-between;
+
+  /* 교차축 정렬: center, flex-start(default), flex-end, stretch(default) */
+  align-items: center;
+
+  /* flex-direction: row(default), column(세로정렬: 주축과 교차축이 바뀜), row-reverse, column-reverse */
+  _flex-direction: column;
+
+  /* gap: column-gap(가로 간격), row-gap(세로 간격), gap(가로 세로 모두 간격) */
+  _column-gap: 20px;
+  row-gap: 20px;
+  _gap: 20px;
+  justify-content: space-between;
+
+  /* gap을 사용하게 되면 그만큼의 공간이 늘어나서 가로 마지막 요소가 개행 된다. 이때 %와 px을 함께 사용하는 방법이 calc()함수 이다. */
+}
+
+/* .item:nth-child(1) {
+  height: 150px;
+} */
+
+/* 2. flex-wrap : 요소가 브라우저 끝에 다달았을때 아이템 요소가 개행 되는지 여부를 결정한다 - wrap, nowrap, wrap-reverse */
+/*  - display:flex 는 container의 크기 보다 작으면 원래 가로 크기를 유지 하지만 container보다 크게 되면 container의 가로 크기에 맞춘다 */
+
+.item {
+  width: calc(33.33% - 12px);
+  height: 200px;
+  border: 1px solid;
+}

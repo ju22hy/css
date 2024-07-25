@@ -1,0 +1,160 @@
+/* 1. font-family : 글꼴 */
+
+/* - 주로 웹폰트(google font)를 사용한다 */
+@import url(https://fonts.googleapis.com/css?family=Noto+Sans+KR:100,200,300,regular,500,600,700,800,900);
+
+/* - 콤마를 기준으로 글꼴을 검색하고, 모두 없으면 글자 모양 sans-serif, serif 글꼴을 찾아 적용한다 */
+/* - 글자체는 콤마를 기준으로 앞에서부터 존재하는 글자체를 선택한다 */
+/* - serif, sans-serif : 콤마 앞의 글자체가 없을 경우 최종적으로 장식체 또는 비장식체 중 아무 글자체나 선택하여 적용하라는 의미 */
+p {
+  font-size: 25px;
+  _font-family: '창호체', '얌얌체', serif;
+  _font-family: 'Playwrite PE', cursive;
+  _font-family: 'Nanum Gothic', sans-serif;
+
+  _font-weight: 700;
+}
+
+h3 {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 2. font-weight : 글씨 두께 */
+/* - normal과 thin은 같다. 따라서 thin은 사용하지 않는다. */
+/* - bold와 bolder는 같다. 따라서 bolder는 사용하지 않는다. */
+/* - bold, normal만 사용할 수 있는 기본값 */
+/* - 웹폰트의 경우 글씨 두께가 수치로 세분화 되어 있어 편하다. */
+
+p {
+  font-weight: thin;
+}
+
+strong {
+  font-weight: normal;
+}
+
+/* 3. font-style : 글씨의 기울임 */
+/* - italic과 oblique는 같다. 따라서 oblique는 사용하지 않는다. */
+/* - italic, normal만 사용할 수 있는 기본값 */
+
+/* 4. color : 글자색 */
+/* - 속성 앞에 font, text와 같은 이니셜이 붙지 않는 것에 주의 */
+
+em {
+  font-style: normal;
+  color: aquamarine;
+}
+
+b {
+  font-style: italic;
+  color: darkorchid;
+}
+
+/* 5. text-decoration : 글자 선긋기 */
+/* - underline: 밑줄, overline:윗줄, line-through:취소선, none:선 없애기 */
+
+h3 {
+  text-decoration: underline;
+  text-decoration: overline;
+  text-decoration: line-through;
+  _text-decoration: none; /* a태그 사용 시 유용하다 a태그에서 자동으로 생성되는 텍스트 밑줄을 없애주기 때문이다 */
+}
+
+a {
+  text-decoration: none;
+  color: #222;
+}
+
+/* 6. text-align : 글자 정렬 */
+/* - left(default), right. center, justify(양쪽 정렬) */
+/* 글자 좌우로 움직일 공간이 확보되어야 사용할 수 있다 */
+
+/* 7. letter-spacing, word-spacing : 단어 및 글자 간격 */
+/* - 주로 제목이나 슬로건, 텍스트 로고 디자인 시 사용된다 */
+
+/* 8. line-height : 줄간 */
+/* - 줄간은 상대값(em)으로 작성해야 한다. 고정값으로 작성하면 글자 크기에 비례하지 않는다 */
+/* - 디폴트 단위는 따라서 em이다 */
+/* - 상대 기준 대비 단위 */
+
+.align {
+  background: yellow;
+  text-align: justify;
+  _letter-spacing: 5px;
+  _word-spacing: 4px;
+  line-height: 1.6em;
+  font-size: 12px;
+}
+
+/* 9. text-indent : 들여쓰기 */
+.align {
+  text-indent: 1.6em;
+}
+
+/* -------------- 헤더 만들기 --------------- */
+
+header {
+  display: flex;
+  justify-content: space-between;
+}
+
+header .logo {
+  position: relative;
+}
+
+header .logo a {
+  position: relative;
+  width: 60px;
+  display: block;
+  padding: 10px 0;
+}
+
+header .logo a b {
+  text-indent: -999px;
+  display: inline-block;
+  position: absolute;
+}
+
+header .logo img {
+  width: 100%;
+}
+
+.nav {
+  width: 100%;
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+  list-style: none;
+
+  display: flex;
+  gap: 40px;
+  padding: 20px 25px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #555;
+  position: relative;
+}
+
+/* nav의 자식인 li 중에서 active 클래스를 가진 요소의 자식 a 의제 태그에만 밑줄 만들기 */
+.nav li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #555;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.4s;
+}
+
+.nav li:hover a::after,
+.nav li.active a::after {
+  width: 100%;
+}
+
+input[type='text'] {
+  background: #ddd;
+  padding: 5px 10px;
+}

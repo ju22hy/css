@@ -1,0 +1,156 @@
+/* Selector */
+/* 1. 태그 선택자 : 태그 이름을 <> 제거 후 그대로 사용한다 */
+p {
+  _background: yellow;
+}
+
+/* 2. 아이디, 클래스 선택자 : 블록 속성 태그 중 스타일 다르게 지정 시 */
+/* - 아이디 선택자는 '#'으로, 클래스 선택자는 '.'으로 지정한다 */
+/* - 클래스는 반복 선택을 지정하고, 아이디는 고유 선택을 지정한다 : 관례 */
+/* - 클래스와 아이디 모두 프로그래밍 상 반복 선택이 가능하지만 아이디는 반복해서 사용하지 않는다 */
+#css {
+  _color: red;
+}
+
+.js {
+  _color: blue;
+}
+
+/* 3. 전체 선택자 */
+/* - 전체 선택자는 * 이며, html, body는 태그 선택자다 */
+/* - 모든 각각의 요소에 공통적인 스타일이 적용된다 */
+
+/* html {
+  background: lightcoral;
+  border: 2px solid;
+} */
+
+/* body {
+  background: lightskyblue;
+  border: 2px solid;
+} */
+/* 기본적으로 바디는 본인 영역을 표시하기 위해 마진이 주어짐 */
+
+* {
+  _background: lightgreen;
+  _border: 2px solid;
+}
+
+/* 4. 자식 선택자 : 특정 요소의 하위 자식을 선택하며, 직계자식과 후손으로 나뉜다 */
+/* - 직계자식 : > 기호를 사용한다 */
+h2 > span {
+  _color: gold;
+}
+
+h2 > p {
+  _color: red;
+}
+
+/* 5. 후손 선택자 */
+/* - 후손 : 공백을 사용한다 */
+/* - 특정 선택자와 후손 선택자 사이에 자식이 포함되면 자식 역시 후손 선택자에 포함된다 */
+h2 p {
+  color: red;
+}
+
+/* 6. 그룹 선택자 : 콤마(,)를 기준으로 나열하면 표시된 전체가 공통 속성이 적용된다 */
+/* span, */
+strong,
+em {
+  display: black;
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* 7. 형제 선택자 : (~): 선택자 이후 모든 요소, (+): 선택자 이후 다음 요소 하나  */
+.list4 + li {
+  _background: red;
+}
+
+.list6 ~ li {
+  _background: gold;
+}
+
+/* 8. 가상 선택자 : :nth-child(n), :first-child, :last-child */
+/* 가상 선택자 사용 시 공백 주면 안 됨 'li :first-child'(x) */
+/* 여러개 사용 시 부모 지정해서 사용할 것 */
+/* :nth-child(n) : 콜론 앞쪽에 있는 태그가 어떤 부모의 자식으로 몇 번째에 있는지를 파악한다 */
+ul > li:first-child {
+  _background: coral;
+}
+ul > li:nth-child(3) {
+  _background: lightpink;
+}
+ul > li:last-child {
+  _background: skyblue;
+}
+
+/* even : 짝수, odd : 홀수 */
+ul > li:nth-child(even) {
+  _background: #ececec;
+}
+
+/* 9. 의제(psudo) 태그 선택자 */
+h2 span::before {
+  content: '['; /* content 속성은 의제 태그 작성 시 필수 없으면 안 나옴*/
+}
+h2 span::after {
+  content: ']';
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 5000px;
+}
+
+.nav {
+  margin-top: 100px;
+  width: 100%;
+  border-top: 1px solid #ececec;
+  border-bottom: 1px solid #ececec;
+  list-style: none;
+
+  display: flex;
+  justify-content: end;
+  gap: 40px;
+  padding: 20px 25px;
+}
+
+.nav a {
+  text-decoration: none;
+  color: #555;
+  position: relative;
+}
+
+.nav li a::after {
+  content: '';
+  position: absolute; /* 부모의 포지션이 Static(고정적) 포지션이면 그 포지션을 무시 즉, 부모를 기준값으로 삼지 않음*/
+  width: 0;
+  height: 2px;
+  background: #555;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  transition: all 0.4s;
+}
+
+/* .nav li:hover a {
+  color: blue;
+} */
+
+.nav li:hover a::after,
+/* ▼ 'nav'의 자식인 'li' 중에서 'active' class를 가진 요소의 자식 'a' 의제 태그에만 밑줄을 주겠다 */
+.nav li.active a::after {
+  width: 100%;
+}
+
+/* 10. 속성 선택자 : 주로 input 태그에 작성 */
+input[type='text'] {
+  background: #ddd;
+  padding: 5px 10px;
+}

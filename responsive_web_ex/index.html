@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nav Sample</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h2 class="logo">
+          <a href="#">
+            <b>CodeLab</b>
+            <img src="logo.png" alt="#" />
+          </a>
+        </h2>
+        <ul class="nav">
+          <li class="active"><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Products</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+
+        <div class="menu">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+
+    <script>
+      // const: ram에 공간 할당, menu: 할당된 공간에 이름 지정 현재는 menu로 지정해줌
+      const menu = document.querySelector('.menu');
+      // console.log(menu);
+
+      // eventTarget.addEventListener('eventType', function)
+      // -> 이벤트를실행할타겟.addEventListener('이벤트타입', 실행할함수)
+      menu.addEventListener('click', function () {
+        this.classList.toggle('active');
+      });
+      // this.classList.toggle()
+      // this: 클릭 대상('menu') , toggle: 0과 1이 반복되는 행위, class가 존재 시 제거 혹은 class가 존재하지 않는다면 추가 ex) 전등 껐다켰다
+    </script>
+  </body>
+</html>

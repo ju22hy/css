@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selector</title>
+    <link rel="stylesheet" href="selector.css" />
+  </head>
+  <body>
+    <!-- 
+    2. 아이디 선택자 : 태그에 지정된 id 속성 값의 앞에 #을 붙여 사용한다.
+    3. 클래스 선택자 : 태그에 지정된 class 속성 값의 앞에 .을 붙여 사용한다. 클래스 선택자는 기본적으로 같은 이름을 반복하여 사용하고, 아이디 선택자는 페이지에 고유한 하나의 이름을 지정하여 사용한다. 하지만 아이디 선택자 역시 반복 사용해도 CSS 구현은 되지만, 자바스크립트에서 지정할 경우 처음 하나의 아이디만 선택된다. -->
+    <p>Hellow HTML!!</p>
+    <p id="css">Hellow CSS!!</p>
+    <p class="js">Hellow JS!!</p>
+
+    <div>--------------------------------------------</div>
+
+    <h2>
+      <p>h2의 자식 요소</p>
+      <span>
+        h2의 자식 요소
+        <p>h2 >span >p 요소</p>
+      </span>
+    </h2>
+
+    <div>--------------------------------------------</div>
+
+    <span>span</span>
+    <strong>strong</strong>
+    <em>em</em>
+
+    <div>--------------------------------------------</div>
+
+    <ul>
+      <li>list 1</li>
+      <li>list 2</li>
+      <li>list 3</li>
+      <li class="list4">list 4</li>
+      <li>list 5</li>
+      <li class="list6">list 6</li>
+      <li>list 7</li>
+      <li>list 8</li>
+      <li>list 9</li>
+      <li>list 10</li>
+    </ul>
+
+    <div>--------------------------------------------</div>
+
+    <h2><span>코드랩</span>에 오신 것을 환영합니다.</h2>
+
+    <ul class="nav">
+      <li class="active"><a href="#">menu 1</a></li>
+      <li><a href="#">menu 2</a></li>
+      <li><a href="#">menu 3</a></li>
+      <li><a href="#">menu 4</a></li>
+    </ul>
+
+    <br />
+    <div>--------------------------------------------</div>
+    <br />
+
+    <form action="#">
+      <input type="text" />
+      <input type="password" />
+      <input type="file" />
+    </form>
+  </body>
+</html>
